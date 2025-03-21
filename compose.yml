@@ -1,0 +1,12 @@
+services:
+  nginx-shib:
+    image: nginx-shib
+    build: .
+    container_name: nginx-shib
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./sites:/etc/nginx/sites-enabled:ro
+      - ./ssl:/etc/nginx/ssl:ro
+    restart: unless-stopped
